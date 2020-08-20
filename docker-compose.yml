@@ -6,5 +6,11 @@ services:
       - '8080:8080'
     volumes:
       - ./app:/usr/local/tomcat/webapps/app
+  web:
+    build: ./container/web
+    ports:
+      - '80:80'
+    volumes:
+      - ./container/web/log:/var/log/nginx/
 volumes:
   data: {}
