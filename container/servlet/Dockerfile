@@ -1,3 +1,5 @@
 FROM tomcat
 
-CMD ["catalina.sh", "run"]
+ADD compile.sh ./bin/compile.sh
+
+CMD ["bin/compile.sh"]
