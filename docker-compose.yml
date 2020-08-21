@@ -1,5 +1,18 @@
 version: '3'
 services:
+  db:
+    build: ./container/db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test_db
+      TZ: 'Asia/Tokyo'
+    volumes:
+      - ./container/db/data:/var/lib/mysql
+      - ./container/db/my.cnf:/etc/mysql/conf.d/my.cnf
+      # [/docker-entrypoint-initdb.d]ディレクトリ内のSQLがコンテナ起動時に実行される
+      - ./container/db/sql:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
   servlet:
     build: ./container/servlet
     ports:
