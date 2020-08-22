@@ -4,7 +4,6 @@ services:
     build: ./container/db
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: test_db
       TZ: 'Asia/Tokyo'
     volumes:
       - ./container/db/data:/var/lib/mysql

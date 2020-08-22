@@ -1,6 +1,9 @@
+CREATE DATABASE IF NOT EXISTS `test_db`;
+USE `test_db`;
+
 DROP TABLE IF EXISTS `test_table`;
 
-create table IF not exists `test_table`
+CREATE TABLE `test_table`
 (
     `id`               INT(20) AUTO_INCREMENT,
     `name`             VARCHAR(20) NOT NULL,
@@ -12,4 +15,8 @@ create table IF not exists `test_table`
 INSERT INTO `test_table`
     (`name`)
 VALUES
-    ('test')
+    ('test'),
+    ('hoge'),
+    ('fuga'),
+    ('foo'),
+    ('bar');
