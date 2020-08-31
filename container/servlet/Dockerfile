@@ -1,5 +1,5 @@
 FROM tomcat
 
-ADD compile.sh ./bin/compile.sh
+ADD ./*.war ./webapps
 
-CMD ["bin/compile.sh"]
+CMD ["catalina.sh", "run"]

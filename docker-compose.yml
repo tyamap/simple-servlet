@@ -16,9 +16,6 @@ services:
     build: ./container/servlet
     ports:
       - '8080:8080'
-    volumes:
-      - ./src/main/webapp:/usr/local/tomcat/webapps/app
-      - ./src/main/java:/usr/local/tomcat/webapps/app/WEB-INF/classes
   web:
     build: ./container/web
     ports:
