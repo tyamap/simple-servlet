@@ -3,7 +3,7 @@
     <Resource name = "jdbc/test_db"
             auth = "Container"
             type = "javax.sql.DataSource"
-            driverClassName = "com.mysql.cj.jdbc.Driver"
+            driverClassName = "com.mysql.jdbc.Driver"
             url      = "jdbc:mysql://db:/test_db"
             username = "root"
             password = "root">

@@ -12,7 +12,7 @@
 
     <servlet>
         <servlet-name>HelloServlet</servlet-name>
-        <servlet-class>mypackage.Hello</servlet-class>
+        <servlet-class>com.tyamap.simple_servlet.Hello</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -22,7 +22,7 @@
 
     <servlet>
         <servlet-name>TestServlet</servlet-name>
-        <servlet-class>mypackage.Test</servlet-class>
+        <servlet-class>com.tyamap.simple_servlet.Test</servlet-class>
     </servlet>
 
     <servlet-mapping>

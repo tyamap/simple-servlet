@@ -1,4 +1,4 @@
-package mypackage;
+package com.tyamap.simple_servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;

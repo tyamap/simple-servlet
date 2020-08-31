@@ -1,5 +1,5 @@
 #!/bin/sh
-javapath="/usr/local/tomcat/webapps/app/WEB-INF/classes/mypackage/"
+javapath="/usr/local/tomcat/webapps/app/WEB-INF/classes/com/tyamap/simple_servlet/"
 apipath="/usr/local/tomcat/lib/"
 
 # JDBCドライバの取得
