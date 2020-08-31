@@ -10,3 +10,14 @@
 
 # data
 data
+
+# Maven
+target
+
+# Eclipse
+.project
+.classpath
+.settings
+
+# VSCode
+.vscode
