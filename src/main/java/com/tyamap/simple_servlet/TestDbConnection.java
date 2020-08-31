@@ -9,7 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import javax.sql.*;
 
-public class Test  extends HttpServlet {
+@WebServlet("/test-db-connection")
+public class TestDbConnection  extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

@@ -3,11 +3,13 @@ package com.tyamap.simple_servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public final class Hello extends HttpServlet {
+@WebServlet("/test-servlet")
+public final class TestServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
         PrintWriter writer = response.getWriter();
@@ -28,6 +30,8 @@ public final class Hello extends HttpServlet {
         writer.println("</td>");
         writer.println("</tr>");
         writer.println("</table>");
+        writer.println("Hello.");
+
         writer.println("</body>");
         writer.println("</html>");
     }
