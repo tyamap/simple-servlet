@@ -21,3 +21,11 @@ target
 
 # VSCode
 .vscode
+
+# dependencies
+node_modules
+package-lock.json
+node
+
+# logs
+npm-debug.log
