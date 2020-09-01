@@ -19,6 +19,7 @@
         <version>8.0.21</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+    <!-- https://docs.jboss.org/hibernate/orm/5.4/quickstart/html_single/ -->
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
