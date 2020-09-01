@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.tyamap.simple_servlet.domain">
+    <class name="Event" table="test_events">
+        <!-- 主キーの設定 -->
+        <!-- name属性で指定された値でgetHoge(),setHoge()関数が用いられる -->
+        <id name="id" column="event_id">
+            <!-- 生成方法：一意の値のインクリメント -->
+            <generator class="native"/>
+        </id>
+        <!-- 永続化するプロパティの設定 -->
+        <property name="date" type="timestamp" column="event_date"/>
+        <!-- column属性を指定しない場合、デフォルトでクラス_プロパティ名がカラム名になる -->
+        <!-- type属性を指定しない場合、マッピング型をHibernateが自動検知しようとする -->
+        <property name="title"/>
+    </class>
+</hibernate-mapping>
