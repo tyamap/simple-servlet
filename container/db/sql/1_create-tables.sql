@@ -30,3 +30,12 @@ CREATE TABLE `test_events`
     `event_date`             TIMESTAMP DEFAULT NULL,
     PRIMARY KEY (`event_id`)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+INSERT INTO `test_events`
+    (`title`, `event_date`)
+VALUES
+    ('test', '2020-09-01 17:50:00.0'),
+    ('hoge', '2020-09-01 17:51:00.0'),
+    ('fuga', '2020-09-01 17:52:00.0'),
+    ('foo', '2020-09-01 17:53:00.0'),
+    ('bar', '2020-09-01 17:54:00.0');
