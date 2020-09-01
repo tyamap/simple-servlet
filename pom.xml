@@ -22,7 +22,7 @@
 
   <build>
     <finalName>webapp</finalName>
-    <sourceDirectory>src/main/java</sourceDirectory>
+    <sourceDirectory>src/main</sourceDirectory>
 
     <resources>
 
@@ -35,6 +35,10 @@
 
       <resource>
         <directory>src/main/frontend</directory>
+      </resource>
+
+      <resource>
+        <directory>src/main/resources</directory>
       </resource>
 
     </resources>
