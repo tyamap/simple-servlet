@@ -1,7 +1,8 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <img alt="Tomcat logo" src="../assets/logo_tomcat.gif">
+    <img alt="Vue logo" src="../assets/logo_vue.png">
+    <HelloWorld msg="Welcome to Your Servlet + Vue.js App"/>
   </div>
 </template>
 
