@@ -1,22 +1,26 @@
 package com.tyamap.simple_servlet;
 
-import java.io.*;
-import java.sql.*;
-import java.util.*;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
 
-import javax.naming.InitialContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
-import javax.sql.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.hibernate.Session;
 
-import com.tyamap.simple_servlet.domain.Event;
+import com.google.gson.Gson;
 import com.tyamap.simple_servlet.util.HibernateUtil;
 
-@WebServlet("/test-hibernate")
+@WebServlet("/test-hibernate.json")
 public class TestHibernate extends HttpServlet {
+
+    private Gson gson = new Gson();
+
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
 
@@ -28,10 +32,12 @@ public class TestHibernate extends HttpServlet {
             session.beginTransaction();
             List events = session.createQuery("from Event").list();
             session.getTransaction().commit();
-            for (int i = 0; i < events.size(); i++) {
-                Event theEvent = (Event) events.get(i);
-                out.println("Event: " + theEvent.getTitle() + " Time: " + theEvent.getDate());
-            }
+            String jsonEvents = this.gson.toJson(events);
+
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            out.print(jsonEvents);
+            out.flush();
         } catch (Exception e) {
             // 接続・SQL文エラー
             e.printStackTrace(out);
