@@ -42,6 +42,15 @@
       <version>3.12.1.GA</version>
     </dependency>
 
+    <!-- POJOをJSONに変換するGoogle製ライブラリ。他にはJacksonなど -->
+    <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.8.6</version>
+    </dependency>
+
+
   </dependencies>
 
   <build>
@@ -109,7 +118,7 @@
             </configuration>
           </execution>
         </executions>
-        
+
         <configuration>
           <nodeVersion>v12.16.1</nodeVersion>
           <npmVersion>6.13.4</npmVersion>
