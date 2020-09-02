@@ -21,6 +21,7 @@
 </template>
 
 <script>
+// TODO: TypeScriptで記述する
 import axios from 'axios'
 
 export default {
