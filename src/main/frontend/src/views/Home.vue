@@ -17,8 +17,8 @@ import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
 })
 export default class Home extends Vue {}
 </script>
-<style scope>
-img {
-  width: 10%;
-}
+<style lang='scss' scoped>
+  img {
+    width: 10%;
+  }
 </style>
