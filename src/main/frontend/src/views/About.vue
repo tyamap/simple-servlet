@@ -6,8 +6,9 @@
       <li><a href="hello.jsp">JSP page</a></li>
       <li><a href="test-servlet">Servlet</a></li>
       <li><a href="test-db-connection">DB connection</a></li>
-      <li><a href="test-hibernate">Hibernate</a></li>
-      <li><a href="test-json-response.json">JSON response</a></li>
+      <hr>
+      <li><router-link to="/list">API communicate</router-link></li>
+      <li><router-link to="/hibernate">Hibernate</router-link></li>
     </ul>
   </div>
 </template>
@@ -22,5 +23,8 @@ li {
 }
 a {
   color: #42b983;
+}
+hr {
+  width: 20em;
 }
 </style>
