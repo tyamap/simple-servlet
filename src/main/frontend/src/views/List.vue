@@ -1,5 +1,6 @@
 <template>
 <div id="list">
+    <h1>This is a List made by the API response</h1>
     <table>
       <tbody>
         <tr>
@@ -35,3 +36,8 @@ export default {
   }
 }
 </script>
+<style scope>
+  table {
+    margin: 0 auto;
+  }
+</style>

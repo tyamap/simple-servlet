@@ -1,8 +1,8 @@
 <template>
   <div class="home">
+    <HelloWorld msg="Welcome to Your Servlet + Vue.js App"/>
     <img alt="Tomcat logo" src="../assets/logo_tomcat.gif">
     <img alt="Vue logo" src="../assets/logo_vue.png">
-    <HelloWorld msg="Welcome to Your Servlet + Vue.js App"/>
   </div>
 </template>
 
@@ -17,3 +17,8 @@ import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
 })
 export default class Home extends Vue {}
 </script>
+<style scope>
+img {
+  width: 10%;
+}
+</style>
