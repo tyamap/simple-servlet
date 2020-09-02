@@ -7,7 +7,7 @@
       <li><a href="test-servlet">Servlet</a></li>
       <li><a href="test-db-connection">DB connection</a></li>
       <li><a href="test-hibernate">Hibernate</a></li>
-      <li><a href="test-json-response">JSON response</a></li>
+      <li><a href="test-json-response.json">JSON response</a></li>
     </ul>
   </div>
 </template>
