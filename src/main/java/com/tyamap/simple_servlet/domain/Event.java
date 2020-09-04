@@ -2,14 +2,38 @@ package com.tyamap.simple_servlet.domain;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.GenericGenerator;
+
+@Entity
+@Table(name = "test_events")
 public class Event {
+
     private Long id;
 
     private String title;
+
     private Date date;
 
-    public Event() {}
+    public Event() {
+        // 引数なしコンストラクタはHibernate側で利用
+    }
+    public Event(String title, Date date) {
+		// アプリケーション側で使用
+		this.title = title;
+		this.date = date;
+	}
 
+    @Id
+    @GeneratedValue(generator="increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
     public Long getId() {
         return id;
     }
@@ -18,6 +42,8 @@ public class Event {
         this.id = id;
     }
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "event_date")
     public Date getDate() {
         return date;
     }

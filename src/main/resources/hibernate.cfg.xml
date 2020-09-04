@@ -31,7 +31,8 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">update</property>
 
-        <mapping resource="com/tyamap/simple_servlet/domain/Event.hbm.xml"/>
+        <!-- アノテーションでマッピングしたクラスを指定 -->
+        <mapping class="com.tyamap.simple_servlet.domain.Event"/>
 
     </session-factory>
 
