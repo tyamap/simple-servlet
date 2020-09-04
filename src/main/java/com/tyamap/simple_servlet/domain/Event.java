@@ -4,8 +4,11 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -26,16 +29,23 @@ public class Event {
     @Column(name = "event_date")
     private Date date;
 
+    @ManyToOne
+    @JoinColumn(name = "employee_id",
+    			foreignKey = @ForeignKey(name = "EMPLOYEE_ID_FK")
+    )
+	private Employee employee;
+
     public Event() {
         // 引数なしコンストラクタはHibernate側で利用
     }
-    public Event(String title, Date date) {
-		// アプリケーション側で使用
-		this.title = title;
-		this.date = date;
-	}
 
-    public Long getId() {
+    public Event(String title, Date date) {
+        // アプリケーション側で使用
+        this.title = title;
+        this.date = date;
+    }
+
+	public Long getId() {
         return id;
     }
 
