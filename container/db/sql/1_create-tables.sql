@@ -16,7 +16,7 @@ DROP TABLE IF EXISTS `test_employees`;
 
 CREATE TABLE `test_employees`
 (
-    `id`               INT(20) AUTO_INCREMENT,
+    `id`               BIGINT AUTO_INCREMENT,
     `name`             VARCHAR(20) NOT NULL,
     `department`      VARCHAR(20) NOT NULL,
     `salary`           BIGINT,
@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS `test_events`;
 
 CREATE TABLE `test_events`
 (
-    `id`               INT(20) AUTO_INCREMENT,
+    `id`               BIGINT AUTO_INCREMENT,
     `title`            VARCHAR(20) NOT NULL,
     `event_date`       TIMESTAMP DEFAULT NULL,
     `employee_id`      BIGINT,
