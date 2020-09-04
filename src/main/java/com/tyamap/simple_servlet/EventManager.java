@@ -1,9 +1,11 @@
 package com.tyamap.simple_servlet;
 
+import java.util.Date;
+import java.util.List;
+
 import org.hibernate.Session;
 
-import java.util.*;
-
+import com.tyamap.simple_servlet.domain.Employee;
 import com.tyamap.simple_servlet.domain.Event;
 import com.tyamap.simple_servlet.util.HibernateUtil;
 
@@ -24,7 +26,15 @@ public class EventManager {
                 System.out.println("Event: " + theEvent.getTitle() + " Time: " + theEvent.getDate());
             }
         }
-        
+        // mvn exec:java -Dexec.mainClass="com.tyamap.simple_servlet.EventManager" -Dexec.args="emp"
+        else if (args[0].equals("emp")) {
+            List employees = mgr.listEmployee();
+            for (int i = 0; i < employees.size(); i++) {
+                Employee emp = (Employee) employees.get(i);
+                System.out.println("Name: " + emp.getName() + " Events: " + emp.getEvents().size());
+            }
+        }
+
         HibernateUtil.getSessionFactory().close();
     }
 
@@ -39,10 +49,19 @@ public class EventManager {
 
         session.getTransaction().commit();
     }
+
     private List listEvents() {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         List result = session.createQuery("from Event").list();
+        session.getTransaction().commit();
+        return result;
+    }
+
+    private List listEmployee() {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        List result = session.createQuery("from Employee").list();
         session.getTransaction().commit();
         return result;
     }
