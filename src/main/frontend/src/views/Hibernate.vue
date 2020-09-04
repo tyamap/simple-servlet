@@ -7,11 +7,13 @@
           <th>ID</th>
           <th>title</th>
           <th>date</th>
+          <th>host</th>
         </tr>
         <tr v-for="e in events" :key="e.id">
           <td>{{ e.id }}</td>
           <td>{{ e.title }}</td>
           <td>{{ e.date }}</td>
+          <td>{{ e.employee.name }}</td>
         </tr>
       </tbody>
     </table>
