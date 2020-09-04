@@ -13,12 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.hibernate.Session;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.tyamap.simple_servlet.util.HibernateUtil;
 
 @WebServlet("/test-hibernate.json")
 public class TestHibernate extends HttpServlet {
 
-    private Gson gson = new Gson();
+    // Exposeアノテーションがついていないものは除外する
+    private Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
