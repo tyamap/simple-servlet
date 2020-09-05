@@ -12,15 +12,24 @@ services:
       - ./container/db/sql:/docker-entrypoint-initdb.d
     ports:
       - 3306:3306
-  servlet:
-    build: ./container/servlet
+  backend:
+    build: ./backend
     ports:
-      - '8080:8080'
+      # API用のポートを開く
+      - '23450:8080'
+  # frontend:
+  #   build: ./frontend
+  #   command: npm run build
+  #   ports:
+  #     - '8080:8080'
   web:
     build: ./container/web
     ports:
       - '80:80'
     volumes:
+      # ログをコピー
       - ./container/web/log:/var/log/nginx/
+      # フロントエンドをデプロイ
+      - ./frontend/dist:/usr/share/nginx/html
 volumes:
   data: {}

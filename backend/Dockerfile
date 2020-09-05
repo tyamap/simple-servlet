@@ -1,5 +1,5 @@
 FROM tomcat
 
-ADD ./*.war ./webapps
+COPY ./target/*.war ./webapps
 
 CMD ["catalina.sh", "run"]
