@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import List from './views/List.vue'
-import Hibernate from './views/Hibernate.vue'
+import Events from './views/Events.vue'
+import Employees from './views/Employees.vue'
 
 Vue.use(Router)
 
@@ -24,14 +24,14 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     },
     {
-      path: '/list',
-      name: 'list',
-      component: List
+      path: '/events',
+      name: 'events',
+      component: Events
     },
     {
-      path: '/hibernate',
-      name: 'hibernate',
-      component: Hibernate
+      path: '/employees',
+      name: 'employees',
+      component: Employees
     }
   ]
 })

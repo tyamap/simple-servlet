@@ -1,6 +1,6 @@
 <template>
 <div id="list">
-    <h1>This is a List made by the API response</h1>
+    <h1>This is a Employees List</h1>
     <table>
       <tbody>
         <tr>
@@ -32,7 +32,7 @@ export default {
   },
   mounted () {
     axios
-      .get('/test-json-response.json')
+      .get('/employees.json')
       .then(response => (this.employees = response.data))
   }
 }

@@ -1,6 +1,6 @@
 <template>
 <div id="list">
-    <h1>This is a List made by the Hibernate response</h1>
+    <h1>This is a Events List</h1>
     <table>
       <tbody>
         <tr>
@@ -32,7 +32,7 @@ export default {
   },
   mounted () {
     axios
-      .get('/test-hibernate.json')
+      .get('/events.json')
       .then(response => (this.events = response.data))
   }
 }
