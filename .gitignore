@@ -19,6 +19,7 @@ dist
 .project
 .classpath
 .settings
+bin
 
 # VSCode
 .vscode
