@@ -15,12 +15,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.tyamap.simple_servlet.domain.Event;
+import com.tyamap.simple_servlet.domain.Employee;
 
-@WebServlet("/test-hibernate.json")
-public class TestHibernate extends HttpServlet {
+@WebServlet(name = "employees", urlPatterns = { "/employees.json" })
+public class IndexEmployees extends HttpServlet {
 
-    // Exposeアノテーションがついていないものは除外する
     private Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
     private EntityManagerFactory entityManagerFactory =
         Persistence.createEntityManagerFactory( "com.tyamap.simple_servlet.jpa" );
@@ -34,14 +33,14 @@ public class TestHibernate extends HttpServlet {
 
         try {
             entityManager.getTransaction().begin();
-            List<Event> result = entityManager.createQuery( "from Event", Event.class ).getResultList();
+            List<Employee> result = entityManager.createQuery( "from Employee", Employee.class ).getResultList();
             entityManager.getTransaction().commit();
             entityManager.close();
-            String jsonEvents = this.gson.toJson(result);
+            String jsonEmployees = this.gson.toJson(result);
 
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
-            out.print(jsonEvents);
+            out.print(jsonEmployees);
             out.flush();
         } catch (Exception e) {
             // 接続・SQL文エラー

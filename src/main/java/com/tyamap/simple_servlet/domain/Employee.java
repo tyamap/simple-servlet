@@ -26,11 +26,13 @@ public class Employee {
     @Expose
     private String name;
 
+    @Expose
     private String department;
 
+    @Expose
     private long salary;
 
-	@OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Event> events = new ArrayList<>();
 
 	public Employee() {}
