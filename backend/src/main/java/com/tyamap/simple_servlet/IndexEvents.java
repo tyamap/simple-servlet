@@ -41,6 +41,7 @@ public class IndexEvents extends HttpServlet {
 
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
+            response.setHeader("Access-Control-Allow-Origin", "http://localhost");
             out.print(jsonEvents);
             out.flush();
         } catch (Exception e) {

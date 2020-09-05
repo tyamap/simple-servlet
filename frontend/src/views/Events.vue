@@ -32,7 +32,7 @@ export default {
   },
   mounted () {
     axios
-      .get('/events.json')
+      .get('http://localhost:23450/webapp/events.json')
       .then(response => (this.events = response.data))
   }
 }
