@@ -17,11 +17,10 @@ services:
     ports:
       # API用のポートを開く
       - '23450:8080'
-  # frontend:
-  #   build: ./frontend
-  #   command: npm run build
-  #   ports:
-  #     - '8080:8080'
+  frontend:
+    build: ./frontend
+    ports:
+      - '8080:8080'
   web:
     build: ./container/web
     ports:
@@ -30,6 +29,6 @@ services:
       # ログをコピー
       - ./container/web/log:/var/log/nginx/
       # フロントエンドをデプロイ
-      - ./frontend/dist:/usr/share/nginx/html
+      # - ./frontend/dist:/usr/share/nginx/html
 volumes:
   data: {}
