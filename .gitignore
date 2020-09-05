@@ -11,8 +11,9 @@
 # data
 data
 
-# Maven
+# Build
 target
+dist
 
 # Eclipse
 .project
