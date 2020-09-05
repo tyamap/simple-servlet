@@ -1,5 +1,8 @@
 # !/usr/bin/bash
 
+cd backend
 mvn clean package
-cp target/webapp.war container/servlet/app.war
+cd ../frontend
+npm run build
+cd ..
 docker-compose up --build

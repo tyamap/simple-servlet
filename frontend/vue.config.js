@@ -1,3 +1,3 @@
 module.exports = {
-	// outputDir: '../../../target/webapp/'
+	outputDir: '../container/web/dist/'
 }
