@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -35,7 +33,13 @@ public class Employee {
 	@OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Event> events = new ArrayList<>();
 
-    public Employee() {
+	public Employee() {}
+
+    public Employee(String name, String department, long salary) {
+    	super();
+    	this.name = name;
+        this.department = department;
+        this.salary = salary;
     }
 
     public Employee(int id, String name, String department, long salary) {
@@ -46,13 +50,14 @@ public class Employee {
         this.salary = salary;
     }
 
-    public Employee(int id, String name, String department, long salary, List<Event> events) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.department = department;
-		this.salary = salary;
-		this.events = events;
+	public void addEvent(Event event) {
+		events.add( event );
+		event.setEmployee( this );
+	}
+
+	public void removeEvent(Event event) {
+		events.remove( event );
+		event.setEmployee( null );
 	}
 
 	public int getId() {

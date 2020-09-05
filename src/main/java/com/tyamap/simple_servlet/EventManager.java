@@ -21,8 +21,16 @@ public class EventManager {
 
         // mvn exec:java -Dexec.mainClass="com.tyamap.simple_servlet.EventManager" -Dexec.args="store"
         if (args[0].equals("store")) {
-            // entityManager.persist( new Event( "Our very first event!", new Date() ) );
-            // entityManager.persist( new Event( "A follow up event", new Date() ) );
+            Employee emp = new Employee("Ken", "HQ", 10000);
+            Event eve1 = new Event( "first event", new Date() );
+            Event eve2 = new Event( "follow up", new Date() );
+
+            emp.addEvent( eve1 );
+            emp.addEvent( eve2 );
+            entityManager.persist( emp );
+            entityManager.flush();
+
+            emp.removeEvent( eve1 );
         }
         // mvn exec:java -Dexec.mainClass="com.tyamap.simple_servlet.EventManager" -Dexec.args="list"
         else if (args[0].equals("list")) {

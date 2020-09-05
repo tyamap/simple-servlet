@@ -11,9 +11,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.google.gson.annotations.Expose;
-
 import org.hibernate.annotations.GenericGenerator;
+
+import com.google.gson.annotations.Expose;
 
 @Entity
 @Table(name = "test_events")
@@ -40,11 +40,10 @@ public class Event {
         // 引数なしコンストラクタはHibernate側で利用
     }
 
-    public Event(String title, Date date, Employee employee) {
+    public Event(String title, Date date) {
         // アプリケーション側で使用
         this.title = title;
         this.date = date;
-        this.employee = employee;
     }
 
 	public Long getId() {
