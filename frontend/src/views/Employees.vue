@@ -32,7 +32,7 @@ export default {
   },
   mounted () {
     axios
-      .get('/employees.json')
+      .get('http://localhost:23450/webapp/employees.json')
       .then(response => (this.employees = response.data))
   }
 }

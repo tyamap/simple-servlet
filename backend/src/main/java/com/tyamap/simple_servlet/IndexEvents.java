@@ -15,11 +15,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.tyamap.simple_servlet.domain.Employee;
+import com.tyamap.simple_servlet.domain.Event;
 
-@WebServlet(name = "employees", urlPatterns = { "/employees.json" })
-public class IndexEmployees extends HttpServlet {
+@WebServlet(name = "events", urlPatterns = { "/events.json" })
+public class IndexEvents extends HttpServlet {
 
+    // Exposeアノテーションがついていないものは除外する
     private Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
     private EntityManagerFactory entityManagerFactory =
         Persistence.createEntityManagerFactory( "com.tyamap.simple_servlet.jpa" );
@@ -33,14 +34,15 @@ public class IndexEmployees extends HttpServlet {
 
         try {
             entityManager.getTransaction().begin();
-            List<Employee> result = entityManager.createQuery( "from Employee", Employee.class ).getResultList();
+            List<Event> result = entityManager.createQuery( "from Event", Event.class ).getResultList();
             entityManager.getTransaction().commit();
             entityManager.close();
-            String jsonEmployees = this.gson.toJson(result);
+            String jsonEvents = this.gson.toJson(result);
 
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
-            out.print(jsonEmployees);
+            response.setHeader("Access-Control-Allow-Origin", "http://localhost");
+            out.print(jsonEvents);
             out.flush();
         } catch (Exception e) {
             // 接続・SQL文エラー

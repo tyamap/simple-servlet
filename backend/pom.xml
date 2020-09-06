@@ -26,22 +26,6 @@
       <version>5.4.21.Final</version>
     </dependency>
 
-    <!-- Hibernate uses slf4j for logging -->
-    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-simple</artifactId>
-      <version>1.7.30</version>
-      <scope>test</scope>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/javassist/javassist -->
-    <dependency>
-      <groupId>javassist</groupId>
-      <artifactId>javassist</artifactId>
-      <version>3.12.1.GA</version>
-    </dependency>
-
     <!-- POJOをJSONに変換するGoogle製ライブラリ。他にはJacksonなど -->
     <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
     <dependency>
@@ -80,50 +64,6 @@
         <configuration>
           <source>11</source>
           <target>11</target>
-        </configuration>
-      </plugin>
-
-      <plugin>
-        <groupId>com.github.eirslett</groupId>
-        <artifactId>frontend-maven-plugin</artifactId>
-        <version>1.10.0</version>
-
-        <executions>
-          <execution>
-            <id>install-node-and-npm</id>
-            <goals>
-              <goal>install-node-and-npm</goal>
-            </goals>
-            <phase>generate-resources</phase>
-          </execution>
-
-          <execution>
-            <id>npm-install</id>
-            <goals>
-              <goal>npm</goal>
-            </goals>
-            <configuration>
-              <arguments>install</arguments>
-            </configuration>
-          </execution>
-
-          <execution>
-            <id>npm build</id>
-            <goals>
-              <goal>npm</goal>
-            </goals>
-            <phase>generate-resources</phase>
-            <configuration>
-              <arguments>run build</arguments>
-            </configuration>
-          </execution>
-        </executions>
-
-        <configuration>
-          <nodeVersion>v12.16.1</nodeVersion>
-          <npmVersion>6.13.4</npmVersion>
-          <workingDirectory>${project.basedir}/src/main/frontend</workingDirectory>
-          <installDirectory>${project.build.directory}</installDirectory>
         </configuration>
       </plugin>
 
