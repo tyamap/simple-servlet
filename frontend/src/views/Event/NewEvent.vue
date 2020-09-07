@@ -2,7 +2,7 @@
   <div id="f-event">
     <h1>イベントの作成</h1>
       <form id="form" v-on:submit.prevent="postEvent('event/new', newEvent)">
-    　 <!-- TODO: バリデーション追加 -->
+        <!-- TODO: バリデーション追加 -->
         <p>title:<input type="text" v-model="newEvent.title"  name="title" value=""></p>
         <p>date:<input type="date" v-model="newEvent.date" name="date" value=""></p>
         <p>host:<select name="host" v-model="newEvent.host_id">
