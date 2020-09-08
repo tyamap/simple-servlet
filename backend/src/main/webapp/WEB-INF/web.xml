@@ -30,4 +30,13 @@
         <url-pattern>/events.json</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>newEvents</servlet-name>
+        <servlet-class>com.tyamap.simple_servlet.NewEvents</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>newEvents</servlet-name>
+        <url-pattern>/event/new</url-pattern>
+    </servlet-mapping>
 </web-app>
