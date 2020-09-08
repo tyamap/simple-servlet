@@ -1,7 +1,7 @@
 <template>
   <div id="f-event">
     <h1>イベントの作成</h1>
-      <form id="form" v-on:submit.prevent="postEvent('event/new', newEvent)">
+      <form id="form" v-on:submit.prevent="postEvent('/event/new', newEvent)">
         <!-- TODO: バリデーション追加 -->
         <p>title:<input type="text" v-model="newEvent.title"  name="title" value=""></p>
         <p>date:<input type="date" v-model="newEvent.date" name="date" value=""></p>
@@ -22,13 +22,13 @@
 <script>
 import axios from 'axios'
 
-const BASE_URL = 'http://localhost:23450/webapp/'
+const BASE_URL = 'http://localhost:23450/webapp'
 
 export default {
   data () {
     return {
       newEvent: {
-        title: 'タイトル',
+        title: 'title',
         // TODO: 今日の日付（yyyy-MM-dd)
         date: '2020-09-06',
         host_id: 1,
@@ -42,8 +42,7 @@ export default {
         event: newEvent,
       }, {
         headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': 'http://localhost:23450'
+          'Content-Type': 'application/json'
         }
       })
       .then(() => {
