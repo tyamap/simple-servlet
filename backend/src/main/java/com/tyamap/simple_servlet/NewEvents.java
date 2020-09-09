@@ -1,8 +1,8 @@
 package com.tyamap.simple_servlet;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.EntityManager;
@@ -37,16 +37,26 @@ public class NewEvents extends HttpServlet {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         try {
-            BufferedReader reader = request.getReader();
-            String body = reader.readLine();
-            System.out.println(body);
+            // // getParameter()の前にgetReaderなどで直接読み取ると、getParameterに失敗する。
+            // BufferedReader reader = request.getReader();
+            // String body = reader.readLine();
+            // System.out.println(body);
 
-            // TODO: jsonをうまいこと処理して入力内容通りのEventを生成
-            // 多分Jacksonでやるのがいい
+            String p_title = request.getParameter("title");
+            String p_strDate = request.getParameter("date");
+            String p_hostId = request.getParameter("host_id");
 
-            Employee host = (Employee) entityManager.createQuery("from Employee e where e.id = " + 1).getResultList().get(0);
-            System.out.println(host.getName());
-            host.addEvent(new Event("title", new Date()));
+            // 日付文字列をDate型に変換
+            SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
+            Date p_date = sdFormat.parse(p_strDate);
+
+            // 主催者Employeeを検索
+            Employee host = (Employee) entityManager
+                .createQuery("from Employee e where e.id = " + p_hostId)
+                .getResultList()
+                .get(0);
+
+            host.addEvent(new Event(p_title, p_date));
 
             entityManager.getTransaction().begin();
 
@@ -57,13 +67,9 @@ public class NewEvents extends HttpServlet {
             entityManager.getTransaction().commit();
             entityManager.close();
 
-            System.out.println("Done");
-
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             response.setHeader("Access-Control-Allow-Origin", "http://localhost");
-            response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
-            response.setHeader("Access-Control-Allow-Headers", "content-type");
             out.print("OK:{}");
             out.flush();
         } catch (Exception e) {

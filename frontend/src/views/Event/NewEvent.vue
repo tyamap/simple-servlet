@@ -37,17 +37,15 @@ export default {
   },
   // TODO: actionsで書く
   methods: {
-    postEvent(param, newEvent) {
-      return axios.post(BASE_URL + param, {
-        event: newEvent,
-      }, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
+    postEvent(path, newEvent) {
+      const params = new URLSearchParams();
+      params.append('title', newEvent.title);    // 渡したいデータ分だけappendする
+      params.append('date', newEvent.date);
+      params.append('host_id', newEvent.host_id);
+      return axios.post(BASE_URL + path, params)
       .then(() => {
         // レスポンスが200の時の処理
-        console.log('送れたよ')
+        console.log('OK')
       })
       .catch(err => {
         if(err.response) {
