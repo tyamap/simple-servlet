@@ -12,7 +12,9 @@
         <tr v-for="e in events" :key="e.id">
           <td>{{ e.id }}</td>
           <td>{{ e.title }}</td>
-          <td>{{ e.date }}</td>
+          <td>{{ e.date.slice(0, 6).indexOf(',') > 0?
+                  e.date.slice(0,5):
+                  e.date.slice(0,6) }}</td>
           <td>{{ e.employee.name }}</td>
         </tr>
       </tbody>

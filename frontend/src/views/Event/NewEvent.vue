@@ -3,19 +3,29 @@
     <h1>イベントの作成</h1>
       <form id="form" v-on:submit.prevent="postEvent('/event/new', newEvent)">
         <!-- TODO: バリデーション追加 -->
-        <p>title:<input type="text" v-model="newEvent.title"  name="title" value=""></p>
-        <p>date:<input type="date" v-model="newEvent.date" name="date" value=""></p>
-        <p>host:<select name="host" v-model="newEvent.host_id">
-                  <option value="1">hoge</option>
-                  <option value="2">foo</option>
-                  <option value="3">bar</option>
-                </select>
-        </p>
-        <input type="submit" value="イベントを作成">
+        <ul>
+          <li>
+            <label for="form-event-title">title:</label>
+            <input type="text" v-model="newEvent.title" name="title" id="form-event-title">
+          </li>
+          <li>
+            <label for="form-event-date">date:</label>
+            <input type="date" v-model="newEvent.date" name="date" id="form-event-date">
+          </li>
+          <li>
+            <label for="form-event-host">host:</label>
+            <select name="host" v-model="newEvent.host_id">
+              <!-- TODO: エンティティからホスト名を取得して選択 -->
+              <option value="1">hoge</option>
+              <option value="2">foo</option>
+              <option value="3">bar</option>
+            </select>
+          </li>
+          <li>
+            <input type="submit" value="イベントを作成">
+          </li>
+        </ul>
       </form>
-      {{newEvent.title}}
-      {{newEvent.date}}
-      {{newEvent.host}}
   </div>
 </template>
 
@@ -38,8 +48,9 @@ export default {
   // TODO: actionsで書く
   methods: {
     postEvent(path, newEvent) {
+      // サーバ側にformデータとして認識してもらう
       const params = new URLSearchParams();
-      params.append('title', newEvent.title);    // 渡したいデータ分だけappendする
+      params.append('title', newEvent.title);
       params.append('date', newEvent.date);
       params.append('host_id', newEvent.host_id);
       return axios.post(BASE_URL + path, params)
