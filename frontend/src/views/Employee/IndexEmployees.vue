@@ -38,7 +38,5 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
-  table {
-    margin: 0 auto;
-  }
+
 </style>

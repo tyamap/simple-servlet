@@ -9,4 +9,34 @@
 	This is a simple web application with a source code organization
 	based on the recommendations of the Application Developer's Guide.
     </description>
+
+    <servlet>
+        <servlet-name>indexEmployees</servlet-name>
+        <servlet-class>com.tyamap.simple_servlet.IndexEmployees</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>indexEmployees</servlet-name>
+        <url-pattern>/employees.json</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>indexEvents</servlet-name>
+        <servlet-class>com.tyamap.simple_servlet.IndexEvents</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>indexEvents</servlet-name>
+        <url-pattern>/events.json</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>newEvents</servlet-name>
+        <servlet-class>com.tyamap.simple_servlet.NewEvents</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>newEvents</servlet-name>
+        <url-pattern>/event/new</url-pattern>
+    </servlet-mapping>
 </web-app>
