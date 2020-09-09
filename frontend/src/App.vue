@@ -18,6 +18,17 @@
   table {
     margin: 0 auto;
   }
+  ul {
+  list-style-type: none;
+  padding: 0;
+  }
+  li {
+    // display: inline-block;
+    margin: 0 10px;
+  }
+  a {
+    color: #42b983;
+  }
 }
 #nav {
   padding: 30px;
